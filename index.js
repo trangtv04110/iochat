@@ -20,8 +20,8 @@ io.on('connection', function(socket) {
 	});
 });
 
-var port = Number(proccess.env.PORT || 3000);
+var port = Number(process.env.PORT || 3000);
 
 http.listen(port, function() {
-	console.log('listen on 3000');
+	console.log('listen on ', port);
 });
