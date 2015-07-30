@@ -1,5 +1,5 @@
 var app	 	= require('express')();
-var http 	= require('https').createServer(app);
+var http 	= require('http').Server(app);
 var io 		= require('socket.io')(http);
 
 app.get('/', function(req, res) {
@@ -23,5 +23,5 @@ io.on('connection', function(socket) {
 var port = Number(process.env.PORT || 3000);
 
 http.listen(port, function() {
-	console.log('listen on ', port);
+	console.log('listen on 3000');
 });
