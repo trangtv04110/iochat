@@ -34,6 +34,7 @@
 			list-style-type: none;
 			margin: 0;
 			padding: 0;
+			margin-bottom: 100px;
 		}
 		#messages li {
 			padding: 5px 10px;
@@ -65,16 +66,19 @@
 		$('form').submit(function() {
 			socket.emit('chat message', nick + ': ' + $('#m').val());
 			$('#messages').append($('<li>').text(nick + ': ' + $('#m').val()));
+			$(document).scrollTop($(document).height());
 			$('#m').val('');
 			return false;
 		});
 
 		socket.on('login', function(nick) {
 			$('#messages').append($('<li class="log">').text(nick + ' has sign in'));
+			$(document).scrollTop($(document).height());
 		});
 
 		socket.on('chat message', function(message) {
 			$('#messages').append($('<li class="notme">').text(message));
+			$(document).scrollTop($(document).height());
 		});
 	</script>
 </body>
